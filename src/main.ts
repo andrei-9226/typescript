@@ -312,3 +312,9 @@ let result: TGroupe = {
     },
   ],
 };
+
+const sum = (a: number, b: number) => {
+  console.log(a + b);
+}
+
+sum(3, 6)
