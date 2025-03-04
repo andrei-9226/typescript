@@ -1,0 +1,314 @@
+type TRouterOptions = {
+  baseUrl: string;
+  routes: RouterRecord[];
+};
+
+type TRouterBaseRecord = {
+  path: string;
+  name?: string;
+};
+
+type RouterComponentRecord = TRouterBaseRecord & {
+  component: object;
+  children?: RouterRecord[];
+  redirect?: never;
+};
+
+type RouterRedirectRecord = TRouterBaseRecord & {
+  redirect: string;
+  component?: never;
+};
+
+type RouterRecord = RouterComponentRecord | RouterRedirectRecord;
+
+class Router {
+  baseUrl: string;
+  routes: object[];
+
+  constructor(options: TRouterOptions) {
+    this.baseUrl = options.baseUrl;
+    this.routes = options.routes;
+  }
+}
+
+const router = new Router({
+  baseUrl: '/',
+  routes: [
+    {
+      path: '',
+      name: 'root',
+      redirect: '/home',
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: {},
+    },
+    {
+      path: '/office',
+      name: 'office',
+      component: {},
+      children: [{ path: '/home', component: {} }],
+    },
+  ],
+});
+
+console.log(router);
+
+/*
+{
+			path: '/',
+			redirect: '/home'
+		},
+		{
+			path: '/home',
+			component: {}
+		},
+		{
+			path: '/office',
+			component: {},
+			children: []
+		}
+		*/
+
+/* type TA = {
+	a: number,
+	b: number,
+	c?: never
+}
+
+type TC = {
+	a?: never,
+	b: number,
+	c: number
+}
+
+type haha = TA | TC;
+let a: haha = { a: 1, b: 2, c: 3 };
+console.log(a); */
+/* 
+type haha = TA & TC;
+let a: haha = { a: 0, b: 1, c: 2  };
+ */
+
+/* let a: number = 1;
+let b: string = '1';
+let c: number = a */
+
+/* function sum(a: number, b: number){
+	return a + b;
+}
+
+console.log(sum(1, 2)); */
+
+/* const userValueInput = document.querySelector('.user-value');
+
+if(userValueInput instanceof HTMLInputElement){
+	userValueInput.value = '100';
+} */
+
+/*
+	!= null
+	typeof some === 'string'
+	userValueInput instanceof HTMLInputElement
+	'value' in userValueInput
+*/
+
+/* let a: number = 1;
+let b: string = 'a';
+let c: boolean = true;*/
+//let d: RegExp = /.*/;
+/*let e: number[] = [ 1 ]; */
+/* let g: Array<number> = [ 1 ]; */
+// react useState(0)
+/* let counter = 1; */
+/* let some = [ counter, () => counter++ ]; */
+
+/* type ns = number | string;
+
+ function sum(a: ns, b: ns) : number{
+	if(typeof a === 'string'){
+		a = parseInt(a);
+	}
+	
+	if(typeof b === 'string'){
+		b = parseInt(b);
+	}
+
+	return a + b;
+}
+
+console.log(sum(1, '2'));
+/* */
+/* let bn = 100n;
+
+function useState(initial: number) : [ number, (newValue: number) => void ]{
+	let value = initial;
+	
+	function setValue(newValue: number) : void{
+		value = newValue;
+	}
+
+	return [ value, setValue ];
+}
+
+let [ counter, setCounter ] = useState(1);
+console.log(counter * 2);
+setCounter(1);
+
+let nz: [ number, string, boolean ] = [ 1, '2', true ]; 
+ */
+// future... ,m lesson 2-3-4
+
+/* function useState<T>(initial: T) : [ T, (newValue: T) => void ]{
+	let value = initial;
+	
+	function setValue(newValue: T) : void{
+		value = newValue;
+	}
+
+	return [ value, setValue ];
+}
+
+let [ counter, setCounter ] = useState(1);
+let [ userName, setUserName ] = useState('Dmitry');
+console.log(counter * 2);
+setCounter(1); */
+
+/* type TUser = { 
+	name: string, 
+	some?: number 
+}
+
+function setUser(user: TUser) : void{
+
+}
+
+function updateUser(id: number, user: TUser) : void{
+
+}
+ 
+setUser({
+	name: 's'
+})
+
+const freeState = 'free';
+type TOrderState = typeof freeState | 'pending' | 'done';
+let order1: TOrderState = 'free';
+
+console.log(order1); */
+
+/*
+updateUser(1, {
+
+}) */
+
+/* let figures = {
+
+} */
+
+/* type TFigure = {
+	type: 'square' | 'circle'
+}
+
+type TSquare = {
+	type: 'square'
+	x: number,
+	y: number,
+	perimeter: () => number,
+	area: () => number
+}
+
+type TCircle = {
+	type: 'circle',
+	r: number,
+	area: () => number
+}
+
+function analizeFigire(f){
+
+} */
+
+// type TRouterBaseRecord = {
+//   path: string;
+//   name?: string;
+// };
+
+// type RouterComponentRecord = TRouterBaseRecord & {
+//   component: object;
+//   children?: RouterRecord[];
+//   redirect?: never;
+// };
+
+// type RouterRedirectRecord = TRouterBaseRecord & {
+//   redirect: string;
+//   component?: never;
+// };
+
+// type RouterRecord = RouterComponentRecord | RouterRedirectRecord;
+
+type TUnit = {
+  health: number;
+  armor: number;
+};
+
+type TWeapon = {
+  damage: number;
+  range: number;
+};
+
+type TBowmanWeapon = TWeapon & {
+  wear: number;
+  arrows?: never;
+};
+
+type TSwordsmanWeapon = TWeapon & {
+  arrows: number;
+  wear?: never;
+};
+
+type TShield = {
+  size: number;
+  resistance: number;
+};
+
+type TBowman = TUnit & {
+  weapon: TBowmanWeapon;
+  shield: null | TShield;
+};
+
+type TSwordsman = TUnit & {
+  weapon: TSwordsmanWeapon;
+  shield: null;
+};
+
+type TUnitRow = TSwordsman | TBowman;
+
+type TGroupe = {
+  units: TUnitRow[];
+};
+
+let result: TGroupe = {
+  units: [
+    {
+      health: 100,
+      armor: 5,
+      weapon: {
+        damage: 10,
+        range: 3,
+        wear: 7,
+      },
+      shield: { size: 9, resistance: 9 },
+    },
+    {
+      health: 100,
+      armor: 5,
+      weapon: {
+        damage: 10,
+        range: 3,
+        arrows: 9,
+      },
+      shield: null,
+    },
+  ],
+};
