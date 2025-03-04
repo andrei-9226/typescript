@@ -314,7 +314,10 @@ let result: TGroupe = {
 };
 
 const sum = (a: number, b: number) => {
-  console.log(a + b);
+  for(let i = 0; i < 10; i++) {
+    console.log(i);
+  }
+
 }
 
 sum(3, 6)
