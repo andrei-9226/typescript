@@ -315,6 +315,7 @@ let result: TGroupe = {
 
 const sum = (a: number, b: number) => {
   console.log(a + b);
-}
+  return a + b;
+};
 
-sum(3, 6)
+sum(3, 6);
