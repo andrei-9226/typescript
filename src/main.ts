@@ -1,3 +1,4 @@
+import "./solid/index.ts";
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
@@ -27,4 +28,4 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
-counterUpgrade(document.querySelector<HTMLButtonElement>("#counter_upgrade")!)
+counterUpgrade(document.querySelector<HTMLButtonElement>("#counter_upgrade")!);
