@@ -24,4 +24,4 @@ function makeBirdFly(bird: Bird) {
 
 const birds = [new Bird(), new Sparrow(), new Ostrich()]
 
-birds.forEach(bird => makeBirdFly(bird))
+// birds.forEach(bird => makeBirdFly(bird))
