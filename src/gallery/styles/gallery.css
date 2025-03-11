@@ -1,0 +1,18 @@
+.gallery-wrapper {
+  width: 50vw;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.gallery__content {
+  display: flex;
+}
+
+img {
+  width: 100%;
+}
+
+* {
+    transition: all;
+    transition-duration: 0.3s;
+}
