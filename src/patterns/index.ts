@@ -9,4 +9,5 @@
 // import "./structural/Decorator"
 // import "./structural/Facade";
 // import "./structural/Flyweight";
-import "./structural/Proxy";
+// import "./structural/Proxy";
+import "./behavioral/ChainOfResponsibility";
