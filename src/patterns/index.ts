@@ -2,4 +2,5 @@
 // import "./creational/Abstract_factory"
 // import "./creational/Builder";
 // import "./creational/Prototype"
-import "./creational/Singletone";
+// import "./creational/Singletone";
+import "./structural/Adapter";
