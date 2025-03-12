@@ -7,4 +7,5 @@
 // import "./structural/Bridge"
 // import "./structural/Composite";
 // import "./structural/Decorator"
-import "./structural/Facade";
+// import "./structural/Facade";
+import "./structural/Flyweight";
