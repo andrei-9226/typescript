@@ -3,4 +3,5 @@
 // import "./creational/Builder";
 // import "./creational/Prototype"
 // import "./creational/Singletone";
-import "./structural/Adapter";
+// import "./structural/Adapter";
+import "./structural/Bridge"
