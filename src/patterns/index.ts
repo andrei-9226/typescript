@@ -6,4 +6,5 @@
 // import "./structural/Adapter";
 // import "./structural/Bridge"
 // import "./structural/Composite";
-import "./structural/Decorator"
+// import "./structural/Decorator"
+import "./structural/Facade";
