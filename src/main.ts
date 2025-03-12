@@ -1,4 +1,4 @@
-// import "./solid/index.ts";
+import "./patterns/index.ts";
 import "./style.css";
 import "./gallery/styles/gallery.css";
 import "./gallery/index.ts";
