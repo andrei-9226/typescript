@@ -5,4 +5,5 @@
 // import "./creational/Singletone";
 // import "./structural/Adapter";
 // import "./structural/Bridge"
-import "./structural/Composite";
+// import "./structural/Composite";
+import "./structural/Decorator"
