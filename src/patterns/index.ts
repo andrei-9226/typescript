@@ -12,4 +12,5 @@
 // import "./structural/Proxy";
 // import "./behavioral/ChainOfResponsibility";
 // import "./behavioral/Command";
-import "./behavioral/Iterator";
+// import "./behavioral/Iterator";
+import "./behavioral/Mediator";
