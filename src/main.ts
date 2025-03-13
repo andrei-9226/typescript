@@ -1,7 +1,7 @@
 import "./patterns/index.ts";
 import "./style.css";
-import "./gallery/styles/gallery.css";
-import "./gallery/index.ts";
+import "./slider/styles/slider.css";
+import "./slider/index.ts";
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";

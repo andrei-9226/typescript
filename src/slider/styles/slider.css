@@ -1,14 +1,16 @@
-.gallery-wrapper {
+.slider__wrapper {
   width: 50vw;
   height: 60vh;
   overflow: hidden;
 }
 
-.gallery__content {
+.slider__content {
   display: flex;
+  height: 100%;
 }
 
 img {
+  display: block;
   width: 100%;
 }
 

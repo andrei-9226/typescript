@@ -11,8 +11,8 @@ const enum DIRECTION {
   RIGHT = "right",
 }
 
-const buttonControlContainer = getElementByClass("gallery__control");
-const galleryContainer = getElementByClass("gallery__content");
+const buttonControlContainer = getElementByClass("slider__control");
+const sliderContainer = getElementByClass("slider__content");
 // const leftButton = getElementByDataAttr("control", DIRECTION.LEFT);
 // const rightButton = getElementByDataAttr("control", DIRECTION.RIGHT);
 
@@ -20,11 +20,11 @@ const changeTranslateValue = (direction: DIRECTION) => {};
 
 const transitionSlide = (
   direction: DIRECTION,
-  galleryContainer: HTMLElement
+  sliderContainer: HTMLElement
 ) => {
-  //   const currentTranslateValue = +galleryContainer.style.translate;
+  //   const currentTranslateValue = +sliderContainer.style.translate;
 
-  const computedStyle = window.getComputedStyle(galleryContainer);
+  const computedStyle = window.getComputedStyle(sliderContainer);
   const currentTransform = computedStyle.transform;
 
   let translateX = 0;
@@ -38,18 +38,18 @@ const transitionSlide = (
     }
   }
 
-    console.log(galleryContainer.clientWidth);
+    console.log(sliderContainer.clientWidth);
 
-  const leftTransformValue = translateX + galleryContainer.clientWidth;
-  const rightTransformValue = translateX - galleryContainer.clientWidth;
+  const leftTransformValue = translateX + sliderContainer.clientWidth;
+  const rightTransformValue = translateX - sliderContainer.clientWidth;
 
   switch (direction) {
     case DIRECTION.LEFT:
-      galleryContainer.style.transform =
+      sliderContainer.style.transform =
         "translate(" + leftTransformValue + "px, 0)";
       break;
     case DIRECTION.RIGHT:
-      galleryContainer.style.transform =
+      sliderContainer.style.transform =
         "translate(" + rightTransformValue + "px, 0)";
       break;
   }
@@ -62,10 +62,10 @@ const onClickHandler = (event: Event) => {
 
     direct &&
       direct === DIRECTION.LEFT &&
-      transitionSlide(DIRECTION.LEFT, galleryContainer);
+      transitionSlide(DIRECTION.LEFT, sliderContainer);
     direct &&
       direct === DIRECTION.RIGHT &&
-      transitionSlide(DIRECTION.RIGHT, galleryContainer);
+      transitionSlide(DIRECTION.RIGHT, sliderContainer);
   }
 };
 
