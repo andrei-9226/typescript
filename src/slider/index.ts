@@ -1,4 +1,6 @@
-import "./core/control";
+// import "./core/Control";
+import "./core/control/Control";
+import "./core/Slider";
 import { domElement } from "./utils/dom";
 
 // const galleryApp = document.querySelector("#slider") as HTMLElement;

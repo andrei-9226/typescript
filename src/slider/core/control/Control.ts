@@ -1,3 +1,29 @@
+import { SlideActions } from "../../store/actions";
+import { domElement } from "../../utils/dom";
+import { IControlSlider } from "./types/interfaces";
+
+const leftButton = domElement.getByDataAttr("control", "left");
+const rightButton = domElement.getByDataAttr("control", "right");
+
+class ButtonControl implements IControlSlider {
+  constructor(
+    private leftButton: HTMLElement,
+    private rightButton: HTMLElement
+  ) {
+    this.leftButton.addEventListener("click", this.previous);
+    this.rightButton.addEventListener("click", this.next);
+  }
+
+  previous(): void {
+    SlideActions.decrement();
+  }
+  next(): void {
+    SlideActions.increment();
+  }
+}
+
+new ButtonControl(leftButton, rightButton);
+
 // import {
 //   addListenerToElement,
 //   getElementByClass,
