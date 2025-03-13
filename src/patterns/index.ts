@@ -13,4 +13,5 @@
 // import "./behavioral/ChainOfResponsibility";
 // import "./behavioral/Command";
 // import "./behavioral/Iterator";
-import "./behavioral/Mediator";
+// import "./behavioral/Mediator";
+import "./behavioral/Memento";
