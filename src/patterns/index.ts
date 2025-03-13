@@ -10,4 +10,5 @@
 // import "./structural/Facade";
 // import "./structural/Flyweight";
 // import "./structural/Proxy";
-import "./behavioral/ChainOfResponsibility";
+// import "./behavioral/ChainOfResponsibility";
+import "./behavioral/Command";
