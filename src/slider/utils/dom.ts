@@ -8,9 +8,25 @@ class DomElement {
     return DomElement.instance;
   }
 
+  getByClassname(name: string) {
+    const domElement = document.querySelector(`.${name}`);
+    return this.checkElementExist(
+      domElement,
+      `Cant find element by ${name} class`
+    );
+  }
+
+  getAllByClassname(name: string) {
+    const domElement = document.querySelectorAll(`.${name}`);
+    return this.checkListElementExist(
+      domElement,
+      `Cant find elements by ${name} class`
+    );
+  }
+
   getById(id: string) {
     const domElement = document.querySelector(`#${id}`);
-    return this.checkElementExist(domElement, `Cant find element by id ${id}`);
+    return this.checkElementExist(domElement, `Cant find element by ${id} id`);
   }
 
   getByDataAttr(name: string, value: string = "") {
@@ -25,6 +41,14 @@ class DomElement {
   checkElementExist(element: Element | null, message: string) {
     if (element) {
       return element as HTMLElement;
+    } else {
+      throw Error(message);
+    }
+  }
+
+  checkListElementExist(elements: NodeListOf<Element> | null, message: string) {
+    if (elements) {
+      return [...elements] as HTMLElement[];
     } else {
       throw Error(message);
     }

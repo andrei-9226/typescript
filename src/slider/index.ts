@@ -10,4 +10,5 @@ import { domElement } from "./utils/dom";
 const slider = domElement.getById("slider");
 const imagesContainer = domElement.getByDataAttr("slider-images");
 const buttons = domElement.getByDataAttr("control");
-console.log(buttons);
+
+// console.log(slideItems);
