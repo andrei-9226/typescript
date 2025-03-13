@@ -18,4 +18,5 @@
 // import "./behavioral/Observer";
 // import "./behavioral/State";
 // import "./behavioral/Strategy";
-import "./behavioral/Template";
+// import "./behavioral/Template";
+// import "./behavioral/Visitor";
