@@ -3,6 +3,7 @@ import { dispatcher } from "./Dispatcher";
 
 export interface IStateSlider {
   currentActiveSlide: number;
+  numberOfSlides?: number;
 }
 
 export class SliderStore {
@@ -30,7 +31,7 @@ export class SliderStore {
   }
 
   setState(state: IStateSlider) {
-    this._state = state;
+    this._state = Object.assign(this._state, state);
     this.emitChange();
   }
 
@@ -39,12 +40,18 @@ export class SliderStore {
   }
 
   increment() {
+    if (
+      this._state.numberOfSlides &&
+      this._state.currentActiveSlide >= this._state.numberOfSlides + 1
+    ) {
+      return;
+    }
     this._state.currentActiveSlide++;
     this.emitChange();
   }
 
   decrement() {
-    if (this.state.currentActiveSlide <= 0) {
+    if (this._state.currentActiveSlide <= 0) {
       return;
     }
     this._state.currentActiveSlide--;
@@ -58,4 +65,5 @@ export class SliderStore {
 
 export const sliderStore = new SliderStore({
   currentActiveSlide: 1,
+  numberOfSlides: 1000,
 });

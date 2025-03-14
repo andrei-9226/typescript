@@ -1,6 +1,6 @@
-import { SlideActions } from "../store/actions";
-import { IStateSlider, SliderStore, sliderStore } from "../store/store";
+import { SliderStore, sliderStore } from "../store/store";
 import { domElement } from "../utils/dom";
+import InfinityMoveOption from "./control/InfinitySlides";
 
 const counterSlide = domElement.getByClassname("counter");
 
@@ -28,40 +28,19 @@ class Slider {
   }
 
   initSlider() {
+    this.store.setState({
+      currentActiveSlide: 1,
+      numberOfSlides: this.numberOfSlides,
+    });
     this.onMoveSlide();
     this.addFirstAndLastSlideClone();
 
-    this.container.addEventListener("transitionend", () => {
-      if (this.store.state.currentActiveSlide === 0) {
-        const promise1 = () =>
-          new Promise((res) => {
-            this.container.style.transition = "transform 0s";
-            console.log("promise 1");
-            res(true);
-          });
-        const promise2 = () =>
-          new Promise((res) => {
-            SlideActions.setState({ currentActiveSlide: this.numberOfSlides });
-            console.log("promise 2 ", this.store.state);
-            setTimeout(() => {
-              res(true);
-            }, 10);
-          });
-        const promise3 = () =>
-          new Promise((res) => {
-            this.container.style.transition = "transform 0.2s";
-            console.log("promise 3");
-            res(true);
-          });
-
-        const fn = async () => {
-          await promise1();
-          await promise2();
-          await promise3();
-        };
-        fn();
-      }
-    });
+    const infinityOption = new InfinityMoveOption(
+      this.container,
+      this.numberOfSlides,
+      this.store
+    );
+    infinityOption.iniInfinityMove();
   }
 
   onMoveSlide() {

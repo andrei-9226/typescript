@@ -3,7 +3,7 @@ import { IStateSlider } from "./store";
 
 export type ActionType = {
   actionType: string;
-  payload?: unknown;
+  payload?: IStateSlider;
 };
 
 export const enum ACTIONS_CHANGE_SLIDE {
