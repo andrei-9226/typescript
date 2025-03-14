@@ -6,11 +6,11 @@ export interface IStateSlider {
 }
 
 export class SliderStore {
-  private state: IStateSlider;
+  private _state: IStateSlider;
   private listeners: Function[] = [];
 
   constructor(state: IStateSlider) {
-    this.state = state;
+    this._state = state;
     dispatcher.register(
       ACTIONS_CHANGE_SLIDE.INCREMENT,
       this.increment.bind(this)
@@ -20,10 +20,18 @@ export class SliderStore {
       ACTIONS_CHANGE_SLIDE.DECREMENT,
       this.decrement.bind(this)
     );
+    dispatcher.register(ACTIONS_CHANGE_SLIDE.SET_STATE, (state: IStateSlider) =>
+      this.setState(state)
+    );
   }
 
-  getState() {
-    return this.state;
+  get state() {
+    return this._state;
+  }
+
+  setState(state: IStateSlider) {
+    this._state = state;
+    this.emitChange();
   }
 
   addChangeSlideListener(callback: Function) {
@@ -31,12 +39,15 @@ export class SliderStore {
   }
 
   increment() {
-    this.state.currentActiveSlide++;
+    this._state.currentActiveSlide++;
     this.emitChange();
   }
 
   decrement() {
-    this.state.currentActiveSlide--;
+    if (this.state.currentActiveSlide <= 0) {
+      return;
+    }
+    this._state.currentActiveSlide--;
     this.emitChange();
   }
 
@@ -45,4 +56,6 @@ export class SliderStore {
   }
 }
 
-export const sliderStore = new SliderStore({ currentActiveSlide: 0 });
+export const sliderStore = new SliderStore({
+  currentActiveSlide: 1,
+});

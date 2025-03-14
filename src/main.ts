@@ -2,6 +2,8 @@ import "./patterns/index.ts";
 import "./style.css";
 import "./slider/styles/slider.css";
 import "./slider/index.ts";
+
+import "./slider/utils/helpers.ts"
 import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";

@@ -10,12 +10,12 @@ class Dispatcher {
     this.listeners[actionType].push(callback);
   }
 
-  dispatch({ actionType }: ActionType) {
+  dispatch({ actionType, payload }: ActionType) {
     const listeners = this.listeners[actionType] || [];
     for (let listener of listeners) {
-      listener();
+      payload ? listener(payload) : listener();
     }
   }
 }
 
-export const dispatcher = new Dispatcher()
+export const dispatcher = new Dispatcher();

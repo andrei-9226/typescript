@@ -7,14 +7,12 @@
 .slider__content {
   display: flex;
   height: 100%;
+  transition: transform;
+  transition-duration: 0.2s;
 }
 
-img {
+.slide__item {
   display: block;
   width: 100%;
-}
-
-* {
-    transition: all;
-    transition-duration: 0.3s;
+  min-width: 100%;
 }
