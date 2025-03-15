@@ -1,3 +1,4 @@
+import { SlideActions } from "../../store/actions";
 import { SliderStore } from "../../store/store";
 import { domElement } from "../../utils/dom";
 
@@ -15,7 +16,21 @@ class Preview {
       return img;
     });
     root.append(...this.listPreview);
+    this.initPreview();
   }
+
+  initPreview() {
+    this.listPreview.forEach((item, index) =>
+      item.addEventListener("click", () => this.onSetActiveSlide(index))
+    );
+  }
+
+  onSetActiveSlide = (numberSlide: number) => {
+    const SHIFT_FROM_ZERO_INDEX = 1;
+    SlideActions.setState({
+      currentActiveSlide: numberSlide + SHIFT_FROM_ZERO_INDEX,
+    });
+  };
 }
 
 export default Preview;
