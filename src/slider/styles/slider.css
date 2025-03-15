@@ -17,3 +17,14 @@
   width: 100%;
   min-width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  #app {
+    padding: 0;
+  }
+
+  .slider__wrapper {
+    width: 90vw;
+    height: 70vh;
+  }
+}

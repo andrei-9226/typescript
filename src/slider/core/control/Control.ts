@@ -81,11 +81,13 @@ class DragAndDrop implements IControlSlider {
         this.previousTranslateValue -
         movedBy -
         (this.slider.clientWidth - movedBy);
+      this.next();
     } else if (movedBy > 0) {
       translate =
         this.previousTranslateValue +
         movedBy +
         (this.slider.clientWidth - movedBy);
+      this.previous();
     }
     this.setTransformValue(translate);
   }
@@ -98,10 +100,10 @@ class DragAndDrop implements IControlSlider {
   };
 
   previous(): void {
-    console.log("prev");
+    SlideActions.decrement();
   }
   next(): void {
-    console.log("next");
+    SlideActions.increment();
   }
 }
 
