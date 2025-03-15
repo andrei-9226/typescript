@@ -38,6 +38,20 @@ class DomElement {
     );
   }
 
+  createImageElement(
+    src: string,
+    alt: string = "",
+    width: number = 50,
+    height: number = 50
+  ) {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt;
+    img.width = width;
+    img.height = height;
+    return img;
+  }
+
   checkElementExist(element: Element | null, message: string) {
     if (element) {
       return element as HTMLElement;

@@ -1,11 +1,13 @@
 import { SliderStore, sliderStore } from "../store/store";
 import { domElement } from "../utils/dom";
 import InfinityMoveOption from "./control/InfinitySlides";
+import Preview from "./preview/Preview";
 
 const counterSlide = domElement.getByClassname("counter");
 
 const sliderItems = domElement.getAllByClassname("slide__item");
 const sliderContainer = domElement.getByClassname("slider__content");
+const rootPreview = domElement.getByClassname("slider__preview");
 
 class Slider {
   private store: SliderStore;
@@ -41,6 +43,7 @@ class Slider {
       this.store
     );
     infinityOption.iniInfinityMove();
+    new Preview(this.store,rootPreview, sliderItems as HTMLImageElement[]);
   }
 
   onMoveSlide() {
