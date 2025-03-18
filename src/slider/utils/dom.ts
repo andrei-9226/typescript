@@ -52,6 +52,12 @@ class DomElement {
     return img;
   }
 
+  createSpanElement(className?: string[]) {
+    const span = document.createElement("span");
+    className && span.classList.add(...className);
+    return span;
+  }
+
   checkElementExist(element: Element | null, message: string) {
     if (element) {
       return element as HTMLElement;
