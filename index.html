@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -10,22 +11,25 @@
 <body>
   <div id="app">
     <div class="container">
-      <div class="gallery-wrapper" id="gallery">
-        <div class="gallery__content" data-gallery-images>
-          <img src="./src/gallery/images/1.jpg" alt="">
-          <img src="./src/gallery/images/2.jpg" alt="">
-          <img src="./src/gallery/images/3.jpg" alt="">
-          <img src="./src/gallery/images/4.jpg" alt="">
-          <img src="./src/gallery/images/5.jpg" alt="">
-          <img src="./src/gallery/images/6.jpg" alt="">
-          <img src="./src/gallery/images/7.jpg" alt="">
+      <div class="counter" style="font-size: large;">0</div>
+      <div class="" id="slider">
+        <div class="slider__wrapper">
+          <div class="slider__content" data-slider-images>
+            <img class="slide__item" src="./src/slider/images/1.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/2.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/3.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/4.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/5.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/6.jpg" alt="">
+            <img class="slide__item" src="./src/slider/images/7.jpg" alt="">
+          </div>
         </div>
-        <div class="gallery__control">
-          <button data-control="left">Left</button>
-          <button data-control="right">Right</button>
+        <div class="slider__control">
+          <button class="slider__button slider__button_left" data-control="left"></button>
+          <button class="slider__button slider__button_right" data-control="right"></button>
         </div>
-        <div class="gallery__preview">
-
+        <div class="slider__preview">
+            <!-- <span class="slider__active-preview"></span> -->
         </div>
       </div>
     </div>
